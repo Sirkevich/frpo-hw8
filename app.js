@@ -17,16 +17,16 @@ const gradeTax = {
 };
 
 const fines = {
-  absenteeism: 200,
+  truency: 200,
   drunk: 150,
   faildSprint: 300,
   default: 50,
 };
 
 const finesTax = {
-  [grades.Junior]: 0.75,
-  [grades.Middle]: 0.25,
-  [grades.Senior]: 0,
+  [grades.Junior]: 1.75,
+  [grades.Middle]: 1.25,
+  [grades.Senior]: 1,
 };
 
 function User(name, language, grade = grades.Junior) {
@@ -63,7 +63,6 @@ function User(name, language, grade = grades.Junior) {
     }),
     (this.userfins = (fine) => {
       this.salary -=
-        (fine || fines.default) +
         (fine || fines.default) * finesTax[this.grade];
     });
 }
